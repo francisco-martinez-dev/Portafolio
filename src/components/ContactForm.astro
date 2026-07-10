@@ -1,0 +1,48 @@
+---
+const formEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#';
+---
+
+<form action={formEndpoint} method="POST" class="grid gap-5">
+  <!-- Honeypot anti-spam de Formspree: campo oculto que los bots sí completan -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <div>
+    <label for="name" class="text-sm text-steel dark:text-line-light">Nombre</label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      required
+      class="mt-1.5 w-full rounded-lg border border-line-light bg-transparent px-4 py-2.5 text-sm outline-none focus-visible:border-accent dark:border-line-dark"
+    />
+  </div>
+
+  <div>
+    <label for="email" class="text-sm text-steel dark:text-line-light">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      required
+      class="mt-1.5 w-full rounded-lg border border-line-light bg-transparent px-4 py-2.5 text-sm outline-none focus-visible:border-accent dark:border-line-dark"
+    />
+  </div>
+
+  <div>
+    <label for="message" class="text-sm text-steel dark:text-line-light">Mensaje</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="mt-1.5 w-full resize-none rounded-lg border border-line-light bg-transparent px-4 py-2.5 text-sm outline-none focus-visible:border-accent dark:border-line-dark"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="mt-2 w-fit rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-transform duration-200 hover:-translate-y-0.5 dark:bg-accent dark:text-ink"
+  >
+    Enviar mensaje
+  </button>
+</form>

@@ -1,0 +1,22 @@
+{
+  "name": "portafolio-francisco-martinez",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/sitemap": "3.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.14",
+    "recharts": "^2.13.0",
+    "lucide-react": "^0.453.0",
+    "lucide-astro": "^0.453.0"
+  }
+}

@@ -1,0 +1,183 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import SkillBadge from '../components/SkillBadge.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+import WeatherDashboardEmbed from '../components/react/WeatherDashboardEmbed.jsx';
+import projects from '../data/projects.json';
+
+const experience = [
+  {
+    period: '[Junio 2022] – [Noviembre 2022]',
+    role: 'Frontend Developer Jr.',
+    org: 'Banco Cuscatlán',
+    description:
+      'Desarrollo de interfaces en producción para el sector bancario, con foco en componentes reutilizables y consumo de APIs internas.',
+    tags: ['Angular 13', 'TypeScript', 'REST APIs'],
+  },
+  {
+    period: 'En paralelo',
+    role: 'Proyectos personales',
+    org: 'Autoestudio',
+    description:
+      'Construcción de proyectos propios en React para profundizar más allá de lo usado en el trabajo: Dashboard de Clima, FinTrack y Water Quality Dashboard.',
+    tags: ['React', 'JavaScript', 'Tailwind CSS'],
+  },
+  {
+    period: '[Junio 2026] – Actualidad',
+    role: 'QA Intern',
+    org: 'Almacenes Siman',
+    description:
+      'Testing funcional y de regresión sobre productos en producción, documentación de bugs en Jira y validación de datos con Oracle SQL Developer.',
+    tags: ['Testing funcional', 'Jira', 'Oracle SQL Developer'],
+    current: true,
+    isLast: true,
+  },
+];
+
+const skillGroups = [
+  {
+    category: 'Frontend',
+    skills: [
+      'Angular 13',
+      'React.js',
+      'TypeScript',
+      'JavaScript ES6+',
+      'HTML5',
+      'CSS3',
+      'Tailwind CSS',
+      'Bootstrap',
+      'REST APIs',
+    ],
+  },
+  {
+    category: 'Backend / Otros',
+    skills: ['PHP', 'Laravel', 'Python', 'Java', 'POO'],
+  },
+  {
+    category: 'QA',
+    skills: ['Testing funcional', 'Testing de regresión', 'Jira', 'Oracle SQL Developer'],
+  },
+  {
+    category: 'Herramientas',
+    skills: ['Git', 'GitHub', 'Scrum', 'Kanban'],
+  },
+];
+---
+
+<BaseLayout
+  title="Francisco Martínez — Frontend Developer Jr."
+  description="Portafolio de Francisco Martínez, Frontend Developer Jr. especializado en Angular y React, con experiencia en QA."
+>
+  <Header />
+  <main>
+    <Hero />
+
+    <section id="proyectos" class="mx-auto max-w-5xl px-6 py-20">
+      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        Proyectos
+      </h2>
+      <p class="mt-3 max-w-xl text-steel dark:text-line-light">
+        Cuatro proyectos, cuatro decisiones técnicas distintas. El primero corre en vivo, aquí mismo.
+      </p>
+
+      <div class="mt-4">
+        {projects.map((project, i) =>
+          project.featured ? (
+            <ProjectCard
+              name={project.name}
+              problem={project.problem}
+              decision={project.decision}
+              result={project.result}
+              stack={project.stack}
+              demoUrl={project.demoUrl}
+              repoUrl={project.repoUrl}
+              image={project.image}
+              index={i + 1}
+            >
+              <WeatherDashboardEmbed client:visible />
+            </ProjectCard>
+          ) : (
+            <ProjectCard
+              name={project.name}
+              problem={project.problem}
+              decision={project.decision}
+              result={project.result}
+              stack={project.stack}
+              demoUrl={project.demoUrl}
+              repoUrl={project.repoUrl}
+              image={project.image}
+              index={i + 1}
+            />
+          )
+        )}
+      </div>
+    </section>
+
+    <section id="experiencia" class="mx-auto max-w-5xl px-6 py-20">
+      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        Sobre mí
+      </h2>
+      <p class="reveal mt-3 max-w-xl text-steel dark:text-line-light">
+        Frontend Developer Jr. con experiencia en producción usando Angular en
+        el sector bancario, y proyectos personales en React. Actualmente
+        amplío esa base como QA Intern — una perspectiva que me ayuda a
+        anticipar bugs antes de escribir el primer commit.
+      </p>
+
+      <div class="mt-10">
+        {experience.map((item) => <ExperienceItem {...item} />)}
+      </div>
+    </section>
+
+    <section id="skills" class="mx-auto max-w-5xl px-6 py-20">
+      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        Skills
+      </h2>
+      <p class="reveal mt-3 max-w-xl text-steel dark:text-line-light">
+        Las herramientas con las que construyo, pruebo y despliego interfaces.
+      </p>
+
+      <div class="mt-10 grid gap-10 sm:grid-cols-2">
+        {skillGroups.map((group) => (
+          <div class="reveal">
+            <h3 class="font-display text-sm uppercase tracking-[0.15em] text-accent">
+              {group.category}
+            </h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {group.skills.map((skill) => <SkillBadge label={skill} />)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="contacto" class="mx-auto max-w-5xl px-6 py-20">
+      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        Contacto
+      </h2>
+      <p class="reveal mt-3 max-w-xl text-steel dark:text-line-light">
+        ¿Tenés una posición Frontend o Full Stack Jr. abierta? Escribime.
+      </p>
+
+      <div class="reveal mt-10 grid gap-10 md:grid-cols-2">
+        <ContactForm />
+
+        <div class="flex flex-col justify-center text-sm text-steel dark:text-line-light">
+          <p>
+            También podés escribirme directo a
+            <a href="mailto:franciscolinares000@gmail.com" class="text-ink underline underline-offset-2 hover:text-accent dark:text-paper">franciscolinares000@gmail.com</a>
+            o conectar en
+            <a href="https://www.linkedin.com/in/francisco-alejandro-martinez-linares/" target="_blank" rel="noreferrer" class="text-ink underline underline-offset-2 hover:text-accent dark:text-paper">LinkedIn</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

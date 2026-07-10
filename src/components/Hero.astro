@@ -1,0 +1,41 @@
+---
+const stats = [
+  { label: 'islas hidratadas', value: '2' },
+  { label: 'js por defecto', value: '0kb' },
+  { label: 'stack', value: 'astro · react · tailwind' },
+];
+---
+
+<section id="top" class="mx-auto flex min-h-[calc(100svh-73px)] max-w-5xl flex-col justify-center px-6 py-16">
+  <p class="font-display text-sm uppercase tracking-[0.2em] text-accent">
+    Frontend Developer Jr.
+  </p>
+
+  <h1 class="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+    Francisco Martínez
+  </h1>
+
+  <p class="mt-5 max-w-xl text-lg text-steel dark:text-line-light">
+    Especializado en Angular y React. Construyo interfaces con la disciplina
+    de quien también las prueba: mi paso por QA se nota en cada detalle del frontend.
+  </p>
+
+  <div class="mt-8 flex flex-wrap items-center gap-4">
+    <a href="#proyectos" class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-transform duration-200 hover:-translate-y-0.5 dark:bg-accent dark:text-ink">
+      Ver proyectos
+    </a>
+    <a href="/cv-francisco-martinez.pdf" download class="rounded-full border border-line-light px-6 py-3 text-sm font-medium text-ink transition-colors duration-200 hover:border-accent hover:text-accent dark:border-line-dark dark:text-paper">
+      Descargar CV
+    </a>
+  </div>
+
+  <div class="status-strip mt-12 flex w-fit flex-wrap items-center gap-3 rounded-full border border-line-light/70 bg-paper-soft/60 px-4 py-2 text-xs text-steel dark:border-line-dark/70 dark:bg-ink-soft/60 dark:text-line-light" role="note" aria-label="Detalles técnicos de este portafolio">
+    <span class="h-1.5 w-1.5 rounded-full bg-accent motion-safe:animate-[pulse_2s_ease-in-out_1]"></span>
+    {stats.map((stat, i) => (
+      <>
+        <span><span class="text-ink dark:text-paper">{stat.value}</span> {stat.label}</span>
+        {i < stats.length - 1 && <span class="text-line-light dark:text-line-dark">·</span>}
+      </>
+    ))}
+  </div>
+</section>

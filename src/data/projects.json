@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Dashboard de Clima",
+    "problem": "Practicar consumo de APIs externas y visualización de series temporales en tiempo real.",
+    "decision": "Isla React con Recharts y geocodificación vía Open-Meteo, dentro de un sitio 0 JS por defecto.",
+    "result": "Panel filtrable con tendencia de 7 días, búsqueda por ciudad y modo oscuro/claro.",
+    "stack": ["React", "Tailwind CSS", "Recharts", "Axios"],
+    "demoUrl": "https://dashboard-clima-murex.vercel.app",
+    "repoUrl": "https://github.com/francisco-martinez-dev/dashboard-clima",
+    "featured": true
+  },
+  {
+    "name": "Water Quality Dashboard",
+    "problem": "Falta de una herramienta accesible para monitorear contaminantes en fuentes de agua de El Salvador.",
+    "decision": "HTML, CSS y JavaScript vanilla con un indicador de riesgo basado en estándares de la OMS.",
+    "result": "Panel que traduce datos técnicos de calidad de agua en niveles de riesgo comprensibles.",
+    "stack": ["HTML5", "CSS3", "JavaScript"],
+    "demoUrl": "https://francisco-martinez-dev.github.io/water-quality-dashboard",
+    "repoUrl": "https://github.com/francisco-martinez-dev/water-quality-dashboard",
+    "image": "/projects/water-quality.webp"
+  },
+  {
+    "name": "FinTrack",
+    "problem": "Llevar control personal de gastos sin depender de una app de terceros ni un backend propio.",
+    "decision": "Canvas API para el gráfico de tendencia y localStorage para persistencia local.",
+    "result": "Registro de transacciones con balance automático, alertas y gráfico de tendencia.",
+    "stack": ["JavaScript", "Canvas API", "localStorage"],
+    "demoUrl": "https://francisco-martinez-dev.github.io/fintrack",
+    "repoUrl": "https://github.com/francisco-martinez-dev/fintrack",
+    "image": "/projects/fintrack.webp"
+  },
+  {
+    "name": "Tarjeta de Crédito Interactiva",
+    "problem": "Mostrar en tiempo real cómo los datos de un formulario de pago se reflejan visualmente.",
+    "decision": "Transformaciones 3D en CSS puro para el efecto flip, sin librerías externas.",
+    "result": "Componente de UI reutilizable que valida buenas prácticas de formularios de pago.",
+    "stack": ["HTML5", "CSS3", "JavaScript"],
+    "demoUrl": "https://francisco-martinez-dev.github.io/credit-card-flip",
+    "repoUrl": "https://github.com/francisco-martinez-dev/credit-card-flip",
+    "image": "/projects/credit-card.webp"
+  }
+]
