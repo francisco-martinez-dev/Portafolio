@@ -78,9 +78,5 @@ Ver `.env.example`. Actualmente solo se usa:
 PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/tu-id-de-formulario
 ```
 
-## Pendientes antes de publicar
-
-- [ ] Capturas de pantalla de Water Quality Dashboard, FinTrack y Tarjeta de Crédito Interactiva en `public/projects/`.
-- [ ] Actualizar `site` en `astro.config.mjs` y el `Sitemap:` en `public/robots.txt` con el dominio final de Vercel.
 - [ ] Auditoría Lighthouse (Performance / Accessibility / Best Practices / SEO).
-- [ ] Prueba en dispositivo mobile real.
+- [ ] Prueba en dispositivo mobile real
