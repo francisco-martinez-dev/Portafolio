@@ -2,7 +2,7 @@
 
 Portafolio personal de Francisco Martínez, Frontend Developer Jr. con experiencia en producción en Angular (sector bancario) y proyectos personales en React, con una perspectiva adicional de QA.
 
-**Demo:** _(agregar el link de Vercel una vez desplegado)_
+**Demo:** [portafolio-two-tan-70.vercel.app](https://portafolio-two-tan-70.vercel.app)
 
 ## Stack
 
@@ -63,12 +63,11 @@ src/
 
 ## Decisiones técnicas
 
-- **Islas React limitadas a dos casos.** El resto del sitio es HTML estático generado por Astro — esto es lo que permite mantener el JS enviado al navegador cerca de 0kb por defecto. El `ThemeToggle` y el `WeatherDashboardEmbed` son las únicas excepciones, y usan `client:load` / `client:visible` respectivamente para hidratar solo cuando hace falta.
-- **`WeatherDashboardEmbed` es una reimplementación compacta**, no una copia del proyecto original de Dashboard de Clima: consume la misma API pública (Open-Meteo) pero con una superficie más chica (búsqueda de ciudad + tendencia de 7 días), pensada específicamente para vivir embebida en la tarjeta de proyecto.
-- **Los proyectos viven en `src/data/projects.json`**, no hardcodeados en el markup — agregar un proyecto nuevo es agregar un objeto al array, sin tocar componentes.
-- **Modo claro/oscuro** vía clase `dark` en `<html>`, con un script inline en `BaseLayout.astro` que decide el tema antes del primer paint (evita el flash de tema incorrecto) y respeta tanto `prefers-color-scheme` como una preferencia guardada en `localStorage`.
-- **Paleta de un solo acento** (ámbar `#E7A93F`) sobre una base tinta/papel neutra — evitando deliberadamente el naranja-terracota y el verde-ácido típicos de paletas generadas por IA.
-- **El formulario de contacto es HTML plano** (sin JS) que postea directo a Formspree — coherente con la filosofía de 0 JS por defecto del sitio.
+- **React solo en dos componentes.** El resto del sitio es HTML estático generado por Astro, así que el JS que se manda al navegador queda cerca de 0kb por defecto. `ThemeToggle` usa `client:load` (se necesita apenas carga la página); `WeatherDashboardEmbed` usa `client:visible` (solo se hidrata si el usuario hace scroll hasta esa tarjeta).
+- **`WeatherDashboardEmbed` es una versión compacta**, no una copia del proyecto original de Dashboard de Clima: consume la misma API pública (Open-Meteo) pero con una superficie más chica — búsqueda de ciudad y tendencia de 7 días — pensada para vivir dentro de la tarjeta de proyecto sin duplicar todo el repo original.
+- **Los proyectos viven en `src/data/projects.json`**, no hardcodeados en el markup. Agregar un proyecto nuevo es agregar un objeto al array, sin tocar componentes.
+- **Modo claro/oscuro** vía clase `dark` en `<html>`, con un script inline en `BaseLayout.astro` que decide el tema antes del primer paint (para no mostrar el tema incorrecto por una fracción de segundo). Respeta `prefers-color-scheme` del sistema y una preferencia manual guardada en `localStorage`.
+- **El formulario de contacto es HTML plano**, sin JavaScript, que postea directo a Formspree.
 
 ## Variables de entorno
 
