@@ -77,6 +77,3 @@ Ver `.env.example`. Actualmente solo se usa:
 ```
 PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/tu-id-de-formulario
 ```
-
-- [ ] Auditoría Lighthouse (Performance / Accessibility / Best Practices / SEO).
-- [ ] Prueba en dispositivo mobile real
