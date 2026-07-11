@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://portafolio-two-tan-70.vercel.app',
+  site: 'https://francisco-martinez-dev.vercel.app',
   integrations: [
     tailwind({ applyBaseStyles: false }),
     react(),
