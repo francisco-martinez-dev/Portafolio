@@ -45,14 +45,14 @@ export default function WeatherDashboardEmbed() {
   }
 
   return (
-    <div className="rounded-2xl border border-line-light bg-paper-soft p-5 dark:border-line-dark dark:bg-ink-soft">
-      <form onSubmit={search} className="flex gap-2">
+    <div className="min-w-0 w-full rounded-2xl border border-line-light bg-paper-soft p-4 sm:p-5 dark:border-line-dark dark:bg-ink-soft">
+      <form onSubmit={search} className="flex min-w-0 gap-2">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Buscar ciudad…"
           aria-label="Buscar ciudad"
-          className="flex-1 rounded-full border border-line-light bg-paper px-4 py-2 text-sm text-ink outline-none focus-visible:border-accent dark:border-line-dark dark:bg-ink dark:text-paper"
+          className="min-w-0 flex-1 rounded-full border border-line-light bg-paper px-4 py-2 text-sm text-ink outline-none focus-visible:border-accent dark:border-line-dark dark:bg-ink dark:text-paper"
         />
         <button
           type="submit"

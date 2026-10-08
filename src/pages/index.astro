@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
@@ -12,29 +12,21 @@ import projects from '../data/projects.json';
 
 const experience = [
   {
-    period: 'Junio 2022 – Noviembre 2022',
-    role: 'Frontend Developer Jr.',
-    org: 'Banco Cuscatlán',
-    description:
-      'Desarrollo de interfaces en producción para el sector bancario, con foco en componentes reutilizables y consumo de APIs internas.',
-    tags: ['Angular 13', 'TypeScript', 'REST APIs'],
-  },
-  {
-    period: 'En paralelo',
-    role: 'Proyectos personales',
-    org: 'Autoestudio',
-    description:
-      'Construcción de proyectos propios en React para profundizar más allá de lo usado en el trabajo: Dashboard de Clima, FinTrack y Water Quality Dashboard.',
-    tags: ['React', 'JavaScript', 'Tailwind CSS'],
-  },
-  {
     period: 'Junio 2026 – Actualidad',
-    role: 'QA Intern',
+    role: 'Ingeniero de Calidad (QA Intern)',
     org: 'Almacenes Siman',
     description:
-      'Análisis de historias de usuario y diseño de casos de prueba, con foco en procesos internos y automatizaciones del área de Mercancías, en colaboración directa con el equipo de desarrollo.',
-    tags: ['Testing funcional', 'Diseño de casos de prueba', 'Scrum'],
+      'Análisis de requerimientos e historias de usuario; diseño, ejecución y documentación de pruebas funcionales manuales en Jira y Xray. Validación de procesos internos y colaboración con desarrolladores.',
+    tags: ['QA manual', 'Pruebas funcionales', 'Jira', 'Xray'],
     current: true,
+  },
+  {
+    period: 'Junio 2022 – Noviembre 2022',
+    role: 'Desarrollador Frontend Junior (Pasantía)',
+    org: 'Banco Cuscatlán',
+    description:
+      'Participación en el desarrollo del sitio web del banco con Angular y TypeScript: interfaces y componentes interactivos para contenido institucional y productos bancarios, e integración de una API REST de divisas.',
+    tags: ['Angular', 'TypeScript', 'REST APIs'],
     isLast: true,
   },
 ];
@@ -69,11 +61,22 @@ const skillGroups = [
 ---
 
 <BaseLayout
-  title="Francisco Martínez — Frontend Developer Jr."
-  description="Portafolio de Francisco Martínez, Frontend Developer Jr. especializado en Angular y React, con experiencia en QA."
+  title="Francisco Martínez — Desarrollo de Software | Frontend & QA"
+  description="Portafolio de Francisco Martínez: experiencia en desarrollo frontend con Angular y TypeScript para el sector bancario, y QA manual y funcional con Jira y Xray."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Francisco Martínez',
+    url: 'https://francisco-martinez-dev.vercel.app/',
+    jobTitle: 'Desarrollo de Software | Frontend & QA',
+    sameAs: [
+      'https://github.com/francisco-martinez-dev',
+      'https://www.linkedin.com/in/francisco-alejandro-martinez-linares/'
+    ]
+  })} />
   <Header />
-  <main>
+  <main id="contenido-principal" tabindex="-1">
     <Hero />
 
     <section id="proyectos" class="mx-auto max-w-5xl px-6 py-20">
@@ -122,10 +125,12 @@ const skillGroups = [
         Sobre mí
       </h2>
       <p class="reveal mt-3 max-w-xl text-steel dark:text-line-light">
-        Frontend Developer Jr. con experiencia en producción usando Angular en
-        el sector bancario, y proyectos personales en React. Actualmente
-        amplío esa base como QA Intern — una perspectiva que me ayuda a
-        anticipar bugs antes de escribir el primer commit.
+        Soy estudiante de Ingeniería en Desarrollo de Software y Ciencia de Datos.
+        Participé en el desarrollo de interfaces web para Banco Cuscatlán con
+        Angular y TypeScript. Actualmente trabajo en QA manual y funcional en
+        Almacenes Siman, analizando requerimientos, diseñando y ejecutando
+        pruebas y documentando resultados. Busco oportunidades junior en
+        desarrollo frontend o calidad de software.
       </p>
 
       <div class="mt-10">
@@ -138,7 +143,7 @@ const skillGroups = [
         Skills
       </h2>
       <p class="reveal mt-3 max-w-xl text-steel dark:text-line-light">
-        Las herramientas con las que construyo, pruebo y despliego interfaces.
+        Tecnologías y herramientas que utilizo en desarrollo frontend y pruebas funcionales.
       </p>
 
       <div class="mt-10 grid gap-10 sm:grid-cols-2">
@@ -160,13 +165,13 @@ const skillGroups = [
         Contacto
       </h2>
       <p class="reveal mt-3 max-w-xl text-steel dark:text-line-light">
-        ¿Tenés una posición Frontend, Full Stack o QA Jr. abierta? Escribime.
+        ¿Tenés una oportunidad junior en desarrollo frontend o QA? Conversemos.
       </p>
 
-      <div class="reveal mt-10 grid gap-10 md:grid-cols-2">
+      <div class="reveal mt-10 grid min-w-0 gap-10 md:grid-cols-2">
         <ContactForm />
 
-        <div class="flex flex-col justify-center text-sm text-steel dark:text-line-light">
+        <div class="min-w-0 flex flex-col justify-center break-words text-sm text-steel dark:text-line-light">
           <p>
             También podés escribirme directo a
             <a href="mailto:franciscolinares000@gmail.com" class="text-ink underline underline-offset-2 hover:text-accent dark:text-paper">franciscolinares000@gmail.com</a>

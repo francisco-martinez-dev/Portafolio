@@ -1,6 +1,6 @@
 # Portafolio — Francisco Martínez
 
-Portafolio personal de Francisco Martínez, Frontend Developer Jr. con experiencia en producción en Angular (sector bancario) y proyectos personales en React, con una perspectiva adicional de QA.
+Portafolio personal de Francisco Martínez. Experiencia en desarrollo frontend con Angular y TypeScript para el sector bancario, y en QA manual y funcional con Jira y Xray. Incluye proyectos personales de desarrollo web.
 
 **Demo:** [francisco-martinez-dev.vercel.app](https://francisco-martinez-dev.vercel.app)
 
@@ -76,3 +76,8 @@ Ver `.env.example`. Actualmente solo se usa:
 ```
 PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/tu-id-de-formulario
 ```
+## Perfil profesional y CV
+
+- La portada y la línea de experiencia presentan dos áreas de experiencia: desarrollo frontend y QA manual/funcional.
+- El CV descargable se sirve desde `public/cv-francisco-martinez.pdf`.
+- Al actualizar el CV, sustitúyelo por una exportación PDF de la versión vigente antes de desplegar.

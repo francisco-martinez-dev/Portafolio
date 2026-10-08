@@ -1,6 +1,6 @@
 ---
 import ThemeToggle from './react/ThemeToggle.jsx';
-import { Github, Linkedin, Mail } from 'lucide-astro';
+import { Github, Linkedin, Mail, Menu, X } from 'lucide-astro';
 
 const navLinks = [
   { href: '#proyectos', label: 'Proyectos' },
@@ -12,7 +12,7 @@ const navLinks = [
 
 <header class="sticky top-0 z-50 border-b border-line-light/70 bg-paper/80 backdrop-blur dark:border-line-dark/70 dark:bg-ink/80">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="#top" class="font-display text-lg font-semibold tracking-tight">
+    <a href="#top" class="min-w-0 truncate font-display text-base font-semibold tracking-tight sm:text-lg">
       Francisco Martínez
     </a>
 
@@ -24,7 +24,7 @@ const navLinks = [
       ))}
     </nav>
 
-    <div class="flex items-center gap-3">
+    <div class="flex shrink-0 items-center gap-2 sm:gap-3">
       <a href="https://www.linkedin.com/in/francisco-alejandro-martinez-linares/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="text-steel transition-colors hover:text-accent dark:text-line-light">
         <Linkedin size={18} strokeWidth={1.75} />
       </a>
@@ -35,6 +35,47 @@ const navLinks = [
         <Mail size={18} strokeWidth={1.75} />
       </a>
       <ThemeToggle client:load />
+      <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-steel hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:text-line-light md:hidden" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-navigation">
+        <Menu size={22} data-menu-open-icon />
+        <X size={22} class="hidden" data-menu-close-icon />
+      </button>
     </div>
   </div>
+  <nav id="mobile-navigation" class="hidden border-t border-line-light/70 bg-paper px-6 py-3 dark:border-line-dark/70 dark:bg-ink md:hidden" aria-label="Navegación móvil" inert>
+    <div class="mx-auto flex max-w-5xl flex-col gap-1">
+      {navLinks.map((link) => (
+        <a href={link.href} class="rounded-md px-3 py-3 text-sm text-steel transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent dark:text-line-light">{link.label}</a>
+      ))}
+    </div>
+  </nav>
 </header>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('#mobile-menu-button');
+  const nav = document.querySelector<HTMLElement>('#mobile-navigation');
+  const openIcon = button?.querySelector<SVGElement>('[data-menu-open-icon]');
+  const closeIcon = button?.querySelector<SVGElement>('[data-menu-close-icon]');
+
+  function setMenuOpen(open: boolean) {
+    if (!button || !nav) return;
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    nav.classList.toggle('hidden', !open);
+    nav.inert = !open;
+    openIcon?.classList.toggle('hidden', open);
+    closeIcon?.classList.toggle('hidden', !open);
+  }
+
+  button?.addEventListener('click', () => setMenuOpen(button.getAttribute('aria-expanded') !== 'true'));
+  nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && button?.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      button.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (button?.getAttribute('aria-expanded') === 'true' && event.target instanceof Node && !button.contains(event.target) && !nav?.contains(event.target)) setMenuOpen(false);
+  });
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => { if (event.matches) setMenuOpen(false); });
+</script>

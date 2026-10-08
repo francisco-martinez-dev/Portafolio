@@ -14,8 +14,8 @@ export interface Props {
 const { name, problem, decision, result, stack, demoUrl, repoUrl, image, index } = Astro.props;
 ---
 
-<article class="reveal grid gap-8 border-b border-line-light py-12 last:border-b-0 dark:border-line-dark md:grid-cols-2 md:gap-10">
-  <div>
+<article class="reveal grid min-w-0 gap-8 border-b border-line-light py-12 last:border-b-0 dark:border-line-dark md:grid-cols-2 md:gap-10">
+  <div class="min-w-0">
     <p class="font-display text-xs uppercase tracking-[0.2em] text-accent">
       Proyecto {String(index).padStart(2, '0')}
     </p>
@@ -44,7 +44,7 @@ const { name, problem, decision, result, stack, demoUrl, repoUrl, image, index }
       ))}
     </div>
 
-    <div class="mt-6 flex gap-4">
+    <div class="mt-6 flex flex-wrap gap-3">
       <a href={demoUrl} target="_blank" rel="noreferrer" class="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-transform duration-200 hover:-translate-y-0.5 dark:bg-accent dark:text-ink">
         Demo
       </a>
@@ -54,7 +54,7 @@ const { name, problem, decision, result, stack, demoUrl, repoUrl, image, index }
     </div>
   </div>
 
-  <div class="flex items-center">
+  <div class="min-w-0 flex items-center">
     <slot>
       {image && (
         <img
